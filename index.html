@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         /* ========================================= */
-        /* UPDATE YOUR COLORS AND TEXT SIZES HERE    */
+        /* UPDATE YOUR COLORS, FONTS, AND SIZES HERE */
         /* ========================================= */
         :root {
             /* Background color of the page */
             --page-bg-color: #ffffff; 
 
-            /* 1. Name (Top Text) Settings */
+            /* --- FONT SETTING --- */
+            /* Try replacing 'Inter' with standard fonts like 'Courier New' or 'Times New Roman' */
+            --main-font: 'Inter', Arial, sans-serif;
+
+            /* 1. Name Settings */
             --name-color: #000000;
             --name-size-desktop: 2.5rem;
             --name-size-mobile: 2rem;
+            --spacing-after-name: 1.5rem; /* Space specifically below your name */
 
-            /* 2. Biography Text Settings */
+            /* 2. Biography Settings */
             --bio-color: #333333;
             --bio-size-desktop: 1.0rem;
             --bio-size-mobile: 0.9rem;
+            --spacing-after-bio: 4rem; /* Space specifically below your bio */
 
-            /* 3. Links (Portfolio & Socials) Settings */
-            --link-color: #0000EE;       /* Default blue link color */
-            --link-hover-color: #551A8B; /* Color when hovered over with a mouse */
+            /* 3. Portfolio Links Settings */
+            --link-color: #0000EE;
+            --link-hover-color: #551A8B;
             --link-size-desktop: 1.15rem;
             --link-size-mobile: 1rem;
-            
-            /* Text for lists (if you write regular text next to your links) */
             --list-text-color: #333333;
-            
-            /* Spacing between the different sections */
-            --section-spacing: 1rem; 
+            --spacing-after-portfolio: 4rem; /* Space between portfolio and social links */
+
+            /* 4. Image Settings */
+            --portfolio-image-width: 150px; /* Change this number to make images larger/smaller */
+            --portfolio-image-radius: 4px; /* Adds a slight rounding to image corners */
         }
 
         /* ========================================= */
@@ -41,43 +52,54 @@
         body {
             background-color: var(--page-bg-color);
             margin: 0;
-            /* The padding uses percentages to naturally scale on phones vs laptops */
             padding: 8% 10%;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--main-font);
             line-height: 1.6;
             max-width: 800px;
         }
 
-        /* Name Styling */
         h1 {
             color: var(--name-color);
             font-size: var(--name-size-mobile);
             margin-top: 0;
-            margin-bottom: var(--section-spacing);
-            font-weight: normal;
+            margin-bottom: var(--spacing-after-name);
+            font-weight: 600;
         }
 
-        /* Bio Styling */
         .bio {
             color: var(--bio-color);
             font-size: var(--bio-size-mobile);
-            margin-bottom: var(--section-spacing);
+            margin-bottom: var(--spacing-after-bio);
         }
 
-        /* Lists Styling (Portfolio & Socials) */
+        .portfolio-section {
+            margin-bottom: var(--spacing-after-portfolio);
+        }
+
         ul {
-            list-style-type: none; /* Removes bullet points for a clean, blank-page look */
+            list-style-type: none;
             padding: 0;
-            margin: 0 0 var(--section-spacing) 0;
+            margin: 0;
             color: var(--list-text-color);
             font-size: var(--link-size-mobile);
         }
 
+        /* Makes the image and text sit nicely together */
         ul li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column; /* Stacks on phones */
+            gap: 0.75rem;
         }
 
-        /* Link Styling */
+        /* Image logic so it scales perfectly */
+        ul li img {
+            width: var(--portfolio-image-width);
+            height: auto;
+            border-radius: var(--portfolio-image-radius);
+            object-fit: cover;
+        }
+
         a {
             color: var(--link-color);
             text-decoration: underline;
@@ -92,6 +114,12 @@
             h1 { font-size: var(--name-size-desktop); }
             .bio { font-size: var(--bio-size-desktop); }
             ul { font-size: var(--link-size-desktop); }
+            
+            ul li {
+                flex-direction: row; /* Places image next to text on laptops */
+                align-items: center;
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -100,21 +128,25 @@
     <h1>Jonah Primiano</h1>
 
     <div class="bio">
-        <p>Jonah Primiano is a Los Angeles based artist working with graphite and animated filmmaking. His films have been screened at festivals such as the Slamdance Film Festival, London International Animation Festival, Animateka Festival of Animated Film, and Rockaway Film Festival. In 2019, he launched the animation magazine Mostly Moving. He has programmed curated screenings for the Ottawa International Animation Festival, Rockaway Film Festival, Anibar International Animation Festival, and GIRAF Festival of Independent Animation.
-In 2021, he graduated with an MFA in Experimental Animation from CalArts and was awarded a Post-Graduate Teaching Fellowship. He currently works for CalArts as a Special Faculty in Experimental Animation and the Lead Animation Technical Specialist for the School of Film/Video.</p>
+        <p>Jonah Primiano is a Los Angeles based artist working with graphite and animated filmmaking. His films have been screened at festivals such as the Slamdance Film Festival, London International Animation Festival, Animateka Festival of Animated Film, and Rockaway Film Festival. In 2019, he launched the animation magazine Mostly Moving. He has programmed curated screenings for the Ottawa International Animation Festival, Rockaway Film Festival, Anibar International Animation Festival, and GIRAF Festival of Independent Animation. In 2021, he graduated with an MFA in Experimental Animation from CalArts and was awarded a Post-Graduate Teaching Fellowship. He currently works for CalArts as a Special Faculty in Experimental Animation and the Lead Animation Technical Specialist for the School of Film/Video.</p>
     </div>
 
-    <ul>
-        <li>
-            <a href="#">Brand Redesign Project</a> - Led the visual overhaul for a major tech startup.
-        </li>
-        <li>
-            <a href="#">E-commerce Website</a> - Developed a custom storefront driving a 20% increase in sales.
-        </li>
-        <li>
-            <a href="#">Award-Winning Photography</a> - Featured in minimalist living magazine.
-        </li>
-    </ul>
+    <div class="portfolio-section">
+        <ul>
+            <li>
+                <img src="https://via.placeholder.com/300x200" alt="Project 1 Thumbnail">
+                <div>
+                    <a href="#">Brand Redesign Project</a> - Led the visual overhaul for a major tech startup.
+                </div>
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/300x200" alt="Project 2 Thumbnail">
+                <div>
+                    <a href="#">E-commerce Website</a> - Developed a custom storefront driving a 20% increase in sales.
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <ul>
         <li>
