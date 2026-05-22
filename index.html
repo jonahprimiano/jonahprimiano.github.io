@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* ========================================= */
+        /* UPDATE YOUR COLORS AND TEXT SIZES HERE    */
+        /* ========================================= */
+        :root {
+            /* Background color of the page */
+            --page-bg-color: #ffffff; 
+
+            /* 1. Name (Top Text) Settings */
+            --name-color: #000000;
+            --name-size-desktop: 2.5rem;
+            --name-size-mobile: 2rem;
+
+            /* 2. Biography Text Settings */
+            --bio-color: #333333;
+            --bio-size-desktop: 1.25rem;
+            --bio-size-mobile: 1.1rem;
+
+            /* 3. Links (Portfolio & Socials) Settings */
+            --link-color: #0000EE;       /* Default blue link color */
+            --link-hover-color: #551A8B; /* Color when hovered over with a mouse */
+            --link-size-desktop: 1.15rem;
+            --link-size-mobile: 1rem;
+            
+            /* Text for lists (if you write regular text next to your links) */
+            --list-text-color: #333333;
+            
+            /* Spacing between the different sections */
+            --section-spacing: 3rem; 
+        }
+
+        /* ========================================= */
+        /* LAYOUT & RESPONSIVE RULES (LEAVE AS IS)   */
+        /* ========================================= */
+        body {
+            background-color: var(--page-bg-color);
+            margin: 0;
+            /* The padding uses percentages to naturally scale on phones vs laptops */
+            padding: 8% 10%;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* Name Styling */
+        h1 {
+            color: var(--name-color);
+            font-size: var(--name-size-mobile);
+            margin-top: 0;
+            margin-bottom: var(--section-spacing);
+            font-weight: normal;
+        }
+
+        /* Bio Styling */
+        .bio {
+            color: var(--bio-color);
+            font-size: var(--bio-size-mobile);
+            margin-bottom: var(--section-spacing);
+        }
+
+        /* Lists Styling (Portfolio & Socials) */
+        ul {
+            list-style-type: none; /* Removes bullet points for a clean, blank-page look */
+            padding: 0;
+            margin: 0 0 var(--section-spacing) 0;
+            color: var(--list-text-color);
+            font-size: var(--link-size-mobile);
+        }
+
+        ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Link Styling */
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+        }
+
+        /* Desktop sizing adjustments (Automatically kicks in on larger screens) */
+        @media (min-width: 768px) {
+            h1 { font-size: var(--name-size-desktop); }
+            .bio { font-size: var(--bio-size-desktop); }
+            ul { font-size: var(--link-size-desktop); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Firstname Lastname</h1>
+
+    <div class="bio">
+        <p>Hello. I am a creative professional focusing on minimalist design and functional problem-solving. I have spent the last few years working across various industries to bring ideas to life.</p>
+    </div>
+
+    <ul>
+        <li>
+            <a href="#">Brand Redesign Project</a> - Led the visual overhaul for a major tech startup.
+        </li>
+        <li>
+            <a href="#">E-commerce Website</a> - Developed a custom storefront driving a 20% increase in sales.
+        </li>
+        <li>
+            <a href="#">Award-Winning Photography</a> - Featured in minimalist living magazine.
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            <a href="#">LinkedIn</a>
+        </li>
+        <li>
+            <a href="#">GitHub</a>
+        </li>
+        <li>
+            <a href="#">Email Me</a>
+        </li>
+    </ul>
+
+</body>
+</html>
