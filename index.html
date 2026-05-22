@@ -18,32 +18,34 @@
             --page-bg-color: #ffffff; 
 
             /* --- FONT SETTING --- */
-            /* Try replacing 'Inter' with standard fonts like 'Courier New' or 'Times New Roman' */
-            --main-font: 'Outfit', Arial, sans-serif;
+            --main-font: 'Inter', Arial, sans-serif;
 
             /* 1. Name Settings */
             --name-color: #000000;
-            --name-size-desktop: 2.5rem;
+            --name-weight: normal; /* Use 'normal' to unbold, 'bold' or '600' to make it thick */
+            --name-size-desktop: 2.25rem;
             --name-size-mobile: 2rem;
-            --spacing-after-name: 0.85rem; /* Space specifically below your name */
+            --spacing-after-name: 1.5rem; 
 
             /* 2. Biography Settings */
             --bio-color: #333333;
+            --bio-line-height: 1.8; /* 1.6 is standard, 1.8 is airy, 1.2 is tight */
             --bio-size-desktop: 0.9rem;
-            --bio-size-mobile: 0.75rem;
-            --spacing-after-bio: 2rem; /* Space specifically below your bio */
+            --bio-size-mobile: 0.8rem;
+            --spacing-after-bio: 2rem; 
 
             /* 3. Portfolio Links Settings */
             --link-color: #0000EE;
             --link-hover-color: #551A8B;
+            --list-text-color: #333333;
+            --list-line-height: 1.6; /* Spacing between lines of text in your lists */
             --link-size-desktop: 1.15rem;
             --link-size-mobile: 1rem;
-            --list-text-color: #333333;
-            --spacing-after-portfolio: 4rem; /* Space between portfolio and social links */
+            --spacing-after-portfolio: 4rem; 
 
             /* 4. Image Settings */
-            --portfolio-image-width: 150px; /* Change this number to make images larger/smaller */
-            --portfolio-image-radius: 4px; /* Adds a slight rounding to image corners */
+            --portfolio-image-width: 150px; 
+            --portfolio-image-radius: 4px; 
         }
 
         /* ========================================= */
@@ -54,21 +56,23 @@
             margin: 0;
             padding: 8% 10%;
             font-family: var(--main-font);
-            line-height: 1.6;
+            /* This is a fallback line-height, but your variables override it below */
+            line-height: 1.6; 
             max-width: 800px;
         }
 
         h1 {
             color: var(--name-color);
             font-size: var(--name-size-mobile);
+            font-weight: var(--name-weight);
             margin-top: 0;
             margin-bottom: var(--spacing-after-name);
-            font-weight: 600;
         }
 
         .bio {
             color: var(--bio-color);
             font-size: var(--bio-size-mobile);
+            line-height: var(--bio-line-height);
             margin-bottom: var(--spacing-after-bio);
         }
 
@@ -82,17 +86,16 @@
             margin: 0;
             color: var(--list-text-color);
             font-size: var(--link-size-mobile);
+            line-height: var(--list-line-height);
         }
 
-        /* Makes the image and text sit nicely together */
         ul li {
             margin-bottom: 2rem;
             display: flex;
-            flex-direction: column; /* Stacks on phones */
+            flex-direction: column;
             gap: 0.75rem;
         }
 
-        /* Image logic so it scales perfectly */
         ul li img {
             width: var(--portfolio-image-width);
             height: auto;
@@ -109,14 +112,13 @@
             color: var(--link-hover-color);
         }
 
-        /* Desktop sizing adjustments (Automatically kicks in on larger screens) */
         @media (min-width: 768px) {
             h1 { font-size: var(--name-size-desktop); }
             .bio { font-size: var(--bio-size-desktop); }
             ul { font-size: var(--link-size-desktop); }
             
             ul li {
-                flex-direction: row; /* Places image next to text on laptops */
+                flex-direction: row; 
                 align-items: center;
                 gap: 1.5rem;
             }
